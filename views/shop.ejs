@@ -1,1 +1,40 @@
-<h1 class="mt-5">This is shop page</h1>
+<style>
+    .card-body{
+        position: absolute;
+        bottom: -40px !important;
+       transition: 0.2s ;
+       visibility: hidden;
+       overflow: hidden;
+       background-color: white;
+
+    }
+    .card-img-top{
+        width: 200px !important;
+
+
+    }
+    .card:hover .card-body{
+        bottom: -15px !important;
+        visibility: visible;
+        bottom: 0px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row vh-100  d-flex flex-wrap mt-5 shop_row">
+         
+    </div>
+</div>
+<script src="/js/product.js"></script>
+<script>
+    let shop_row = document.querySelector(".shop_row");
+    product.forEach((val)=>{
+        shop_row.innerHTML+=`
+                <div class="card col-lg-3 col-sm-12 d-flex justify-content-center align-items-center mt-5 border-0 rounded-0 position-relative" style="height: 220px;">
+            <img src="${val.image}" class="card-img-top" alt="..." >
+            <div class="card-body w-100 text-center">
+              <p class="card-text quick_view fw-bold text-center">Quick View</p>
+            </div>
+          </div>
+                `
+    })
+</script>
