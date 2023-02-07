@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row vh-100">
+        <div class="col-lg-6 col-sm-12 bg-light d-flex justify-content-center align-items-center each_product"> 
+            <img src="/images/<%=product.image%> " class="product_detail_img mt-5" alt="" style="height: 250px;">
+        </div>
+        <div class="col-lg-6 col-sm-12 bg-black text-light d-flex justify-content-center align-items-center">
+            <div class="mt-5">
+                <h1 class="fw-bold display-4 mb-5"><%= product.title %> </h1>
+                <table style="width:300px;height: 100px;">
+                <tr class="p-5 ms-3">
+                    <th class="text-start">Price : </th>
+                    <td class="text-center"><%=product.price%> </td>
+                </tr>
+                <tr class="p-5 ms-3">
+                    <th class="text-start">Quantity :</th>
+                    <td class="text-center">1</td>
+                </tr>
+            </table>
+            <button class="btn btn-outline-light mt-5 w-100 ">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/eachproduct.js"></script>

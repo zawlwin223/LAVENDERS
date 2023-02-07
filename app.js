@@ -2,8 +2,10 @@ let express = require ("express");
 let app     = express();
 var expressLayouts = require('express-ejs-layouts');
 let mongoose = require ("mongoose");
-let path     = require ("path");
-app.use(express.static('public'))
+// let path     = require ("path");
+let file_upload = require ("express-fileupload");
+app.use(file_upload());
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded());
 mongoose.connect("mongodb://localhost:27017/SHOPPER")

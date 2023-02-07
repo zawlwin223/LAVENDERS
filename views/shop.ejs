@@ -21,20 +21,17 @@
 </style>
 <div class="container-fluid">
     <div class="row vh-100   d-flex flex-wrap mt-5 shop_row">
-         
+        
+        <% all_product.forEach((val)=>{%>
+            <div class="card col-lg-3 col-sm-12 d-flex justify-content-center align-items-center mt-5 border-0 rounded-0 position-relative" style="height: 220px;" id="<%= val._id %> ">
+                <img src="/images/<%=val.image%>" class="card-img-top" alt="..." >
+                <div class="card-body w-100 text-center">
+                  <p class="card-text quick_view fw-bold text-center">Quick View</p>
+                </div>
+              </div>
+       <%   }) %> 
     </div>
 </div>
 <script src="/js/product.js"></script>
-<script>
-    let shop_row = document.querySelector(".shop_row");
-    product.forEach((val)=>{
-        shop_row.innerHTML+=`
-                <div class="card col-lg-3 col-sm-12 d-flex justify-content-center align-items-center mt-5 border-0 rounded-0 position-relative" style="height: 220px;">
-            <img src="${val.image}" class="card-img-top" alt="..." >
-            <div class="card-body w-100 text-center">
-              <p class="card-text quick_view fw-bold text-center">Quick View</p>
-            </div>
-          </div>
-                `
-    })
-</script>
+
+<script src="/js/detail_product.js"></script>
