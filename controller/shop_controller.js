@@ -1,7 +1,7 @@
 let product = require ("../model/productSchema.js");
 
 let render_shop_page = async (req,res,next)=>{
-    let all_product = await product.find();
+    let all_product = await product.find().sort({created: 'descending'});
     console.log(all_product)
     res.render("../views/shop.ejs",{all_product:all_product})
 }

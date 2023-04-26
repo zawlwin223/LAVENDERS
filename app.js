@@ -2,8 +2,8 @@ let express = require ("express");
 let app     = express();
 var expressLayouts = require('express-ejs-layouts');
 let mongoose = require ("mongoose");
-// let path     = require ("path");
 let file_upload = require ("express-fileupload");
+
 app.use(file_upload());
 app.use(express.static('public'));
 app.use(express.json());
