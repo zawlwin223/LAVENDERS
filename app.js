@@ -29,6 +29,6 @@ app.use("/shop",shop);
 app.use("/CheckOut",check_out);
 app.use("/contact",contact);
 
-app.listen("3000",()=>{
+app.listen(process.env.PORT,()=>{
     console.log("Server is running")
 })
