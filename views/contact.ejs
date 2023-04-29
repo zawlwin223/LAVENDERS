@@ -1,0 +1,111 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Rock+Salt&display=swap');
+    label{
+        display:block;
+        width:120px;
+        float:left;
+        padding-left:10px;
+        text-align:right;
+    }
+    input,textarea{
+        display:block;
+        margin-right:130px;
+        padding-bottom:20px;
+    }
+    tr a{
+        text-decoration:none;
+    }
+    table{
+        border:2px unset silver;
+        border-collapse:20px;
+        
+    }
+    table,tr,td,th{
+        min-width:100px;
+    }
+    td{
+        padding-bottom:10px;
+        text-align:left;
+        padding-left:20px;
+    }
+  /* video {
+  position:absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+} */
+    iframe{
+        width:100% !important;
+        height:100% !important;
+
+    }
+    th{
+        text-align:left;
+    }
+    /* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1036.5112466622697!2d92.90256620024026!3d20.153036036173877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smm!4v1675417632442!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */
+</style>
+<div class="container-fluid">
+    <div class="row vh-100">
+        <div class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center mapping-wrapper position-relative bg-black">
+                <video  style="width:100%;height: 100%;" muted autoplay loop>
+                    <source src="/video/Street Clothing Brand Promotional Video.mp4" type="video/mp4">
+                  </video>
+        </div>
+        <div class="col-lg-6 col-sm-12 bg-black d-flex justify-content-center align-items-center">
+            <div class="text-light ms-1"><div id="Address">
+                <table>
+                    <tr>
+                        <th>Email</th>
+                        <td><a href="mailto:lavendershop@gmail.co" style="color:violet">lavenders@gmail.com</a></td>
+                    </tr>
+                    <tr>
+                        <th>PhoneNumber</th>
+                        <td>+959421770000</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>Main Road,Sittwe</td>  
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header bg-secondary p-4 mb-4">
+      <h5 class="offcanvas-title fw-bold text-light fs-4" id="offcanvasWithBothOptionsLabel">Cart</h5>
+      <button type="button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+      
+      <div class="cart_body">
+          <!-- data space -->
+      </div>
+  
+      <footer class="d-flex justify-content-between align-items-center cart_footer" >
+        
+     
+         
+      </footer>
+      
+   
+      
+  
+    </div>
+    
+  </div>
+<!-- <script>
+    let cart_link = document.querySelector(".cart_link")
+  function cart_icon(){
+    let data = JSON.parse(localStorage.getItem("Cart_Item")) ;
+    console.log(data.length)
+    cart_link.innerHTML += 
+`<span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger" style="top: -2px;z-index: 1;">
+${data.length}
+</span>`
+}
+cart_icon();
+</script> -->
