@@ -3,7 +3,7 @@ let app     = express();
 var expressLayouts = require('express-ejs-layouts');
 let mongoose = require ("mongoose");
 let file_upload = require ("express-fileupload");
-
+require('dotenv').config()
 app.use(file_upload());
 app.use(express.static('public'));
 app.use(express.json());
@@ -30,5 +30,5 @@ app.use("/CheckOut",check_out);
 app.use("/contact",contact);
 
 app.listen(process.env.PORT,()=>{
-    console.log("Server is running")
+    console.log(`Server is running at ${process.env.PORT}`)
 })
