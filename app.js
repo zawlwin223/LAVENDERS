@@ -8,7 +8,7 @@ app.use(file_upload());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded());
-mongoose.connect("mongodb://localhost:27017/SHOPPER")
+mongoose.connect("mongodb+srv://zawlwinp223:zlp20022512@cluster1.qo5tbxm.mongodb.net/?retryWrites=true&w=majority")
 let db = mongoose.connection;
 db.on("error",(error)=>{console.log(error)});
 db.once("open",()=>{console.log("Connected to mongoose database")});
