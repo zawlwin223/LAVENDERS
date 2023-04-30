@@ -1,11 +1,11 @@
 <style>
-    .icon_x{
+    /* .icon_x{
        visibility: hidden;
     }
 
     .cart_item:hover .icon_x{
         visibility: visible;
-    }
+    } */
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Rock+Salt&display=swap');
     nav a{
       color: white !important;
@@ -23,15 +23,32 @@
       color: violet !important;
       text-decoration: underline;
     }
+
+    @media only screen and (max-width: 600px) {
+      .navbar-collapse{
+        padding: 10px 0px 10px 0px;
+      }
+     .navbar-collapse  .navbar-nav .nav-item{
+      padding: 10px 0px 10px 0px;
+      text-align: center;
+     }
+}
 </style>
 <div class="container-fluid position-fixed top-0 z-2">
   <div class="row">
         <nav class="navbar navbar-expand-lg  bg-black">
           <div class="container">
-          
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+            <h6 class=" navbar-brand ms-3 d-lg-none d-sm-block mb-0" style="color: violet;">LAVENDERS</h6>
+            <div class="d-flex align-items-center d-lg-none d-sm-block">
+              <div class="cart_link position-relative me-2">
+                <i class="bi bi-cart2 position-relative icon d-lg-none d-block" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">  
+                </i>
+              </div>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list" style="color: violet;font-size: 35px;"></i>
+              </button>
+            </div>
             <div class="collapse navbar-collapse " id="navbarNav">
               <ul class="navbar-nav text-light w-100 d-flex justify-content-between">
                 <li class="nav-item ">
@@ -40,19 +57,15 @@
                 <li class="nav-item ">
                   <a class="nav-link" href="/shop">Shop</a>
                 </li>
-                <!-- <li class="nav-item text-center">
-                  <img class="mb-0" src="/images/ForHome/lavender.png" alt="" style="height: 50px;">
-                  <span class="text-light fw-bold text-uppercase " style="font-family: 'Allerta Stencil', sans-serif;">Lavenders</span>
-                </li> -->
-                <!-- <li class="nav-item me-5">
-                  <a class="nav-link" href="/CheckOut">Check Out</a>
-                </li> -->
+                <li>
+                  <h6 class="navbar-brand ms-3 d-lg-block d-none mb-0" style="color: violet;">LAVENDERS</h6>
+                </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="/contact">Contact</a>
                 </li>
-                <li class="nav-item position-relative cart_link pt-2">
+                <li class="nav-item position-relative cart_lg_link pt-2 d-lg-block d-none">
                  
-                    <i class="bi bi-cart2 position-relative icon " data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">  
+                    <i class="bi bi-cart2 position-relative icon d-lg-block d-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">  
                     </i>
                 
                   
@@ -96,10 +109,15 @@
     </div>
     <script>
  let cart_link = document.querySelector(".cart_link")     
+ let cart_lg_link = document.querySelector(".cart_lg_link")     
 function cart_icon(){
     let data = JSON.parse(localStorage.getItem("Cart_Item")) ;
     cart_link.innerHTML += 
-`<span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger" style="top: 5px !important;z-index: 1;" >
+`<span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger  " style="top: -1px !important;z-index: 1;" >
+${data.length}
+</span>`
+cart_lg_link.innerHTML += 
+`<span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger  " style="top: 5px !important;z-index: 1;" >
 ${data.length}
 </span>`
 }
