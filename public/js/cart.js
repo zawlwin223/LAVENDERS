@@ -1,8 +1,36 @@
 var data_from_LS = JSON.parse(localStorage.getItem("Cart_Item")) 
+
+let del_box = document.querySelector(".del_box")
 let cart_body = document.querySelector(".cart_body")
 let cart_footer = document.querySelector(".cart_footer");
 let icon = document.querySelector(".icon");
 
+if(data_from_LS.length==0){
+   
+    del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
+   
+ }else if(data_from_LS.length!=0){
+    del_box.innerHTML=` <p class="text-danger text-end me-3 del" onclick="del_all()">Delete All</p>`
+   
+    
+ }
+
+ function del_all(){
+    
+   
+    let total = document.querySelector(".total_price")
+    del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
+    data_from_LS=[];
+    save_to_ls(data_from_LS)
+    cart_icon()
+    cart_body.classList.add("invisible")
+    total.innerHTML=`0K`
+    add_to_cart.innerHTML="Add To Cart"
+    add_to_cart.removeAttribute('disabled', '');
+  
+   
+   
+ }
 icon.addEventListener("click",()=>{
     total_price()
 })
@@ -12,12 +40,11 @@ function save_to_ls(data){
 
 to_cart_body(data_from_LS)
 function to_cart_body(data){
-   
+  
     let div = "";
      data.forEach((val,ind)=>{
    
    
-        
         div+=
        `
        <div class="d-flex flex-row  justify-content-between cart_item py-3 border-bottom" id='${val.id}'>
@@ -41,6 +68,13 @@ function to_cart_body(data){
        `
      }); 
      cart_body.innerHTML=div;
+    //  if(data_from_LS.length==0){
+    //     cart_body.innerHTML="Your Cart is empty";
+    //     del_box.innerHTML=""
+    //  }else{
+    //     del_box.innerHTML=` <p class="text-danger text-end me-3 del">Delete All</p>`
+  
+    //  }
     //  total_price();
      console.log("This is nav")
    }
@@ -102,6 +136,7 @@ total_plus();
 
 
 
+
 function minus(e,p){
     let quantity_text = e.target.closest(".cart_item").querySelector(".quantity_text");
     let cart_item =e.target.closest(".cart_item");
@@ -140,10 +175,6 @@ total_minus()
 function remove_item(e,ind){
   
     data_from_LS.splice(ind,1)
-    console.log(ind)
-    console.log(data_from_LS)
-   
-    
     save_to_ls(data_from_LS)
   
 
@@ -155,13 +186,21 @@ function remove_item(e,ind){
    total_price.innerHTML = `${new_price}K`
    e.target.closest(".cart_item").remove();
    cart_icon();
-   console.log(img,product_img.src)
+      
+   if(data_from_LS.length==0){
+   
+    del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
+   
+ }else if(data_from_LS.length!=0){
+    del_box.innerHTML=` <p class="text-danger text-end me-3 del" onclick="del_all()">Delete All</p>`
+    
+ }
    if(img == product_img.src){
     add_to_cart.innerHTML="Add To Cart"
         add_to_cart.removeAttribute('disabled', '');
    }
 
-   
+
 }
 
 // function cart_icon(){
@@ -172,4 +211,6 @@ function remove_item(e,ind){
 // </span>`
 // }
 // cart_icon();
-
+function back(){
+  location.href = "/shop"
+}

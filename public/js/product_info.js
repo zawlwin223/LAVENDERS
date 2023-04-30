@@ -8,7 +8,7 @@ var items = {};
 let product_img = document.querySelector(".product-image");
 let product_title = document.querySelector(".product-title").innerHTML;
 let product_price = document.querySelector(".product-price").innerHTML;
-let product_quantity = document.querySelector(".product-quantity").innerHTML;
+let product_quantity = document.querySelector(".item_quantity_text");
 
 
 
@@ -22,7 +22,10 @@ data_from_LS.forEach((val)=>{
    
 })
 function add_cart(){
-    console.log("Hi it works")
+   
+    cart_body.classList.remove("invisible")
+    // del.classList.add("d-block") 
+ 
     setItem();
     
     cart_icon();
@@ -30,19 +33,26 @@ function add_cart(){
     total_price()
     add_to_cart.innerHTML="Already In Cart"
     add_to_cart.setAttribute('disabled', '');
-    
+    if(data_from_LS.length==0){
+   
+        del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
+       
+     }else if(data_from_LS.length!=0){
+        del_box.innerHTML=` <p class="text-danger text-end me-3 del" onclick="del_all()">Delete All</p>`
+        
+     }   
 }
 
 
 
 function setItem(){
-
+    let total_result = Number( product_price.slice(1))*Number(product_quantity.innerHTML)
     items.id = product_img.getAttribute("product_id")
     items.Img = product_img.src;
     items.title = product_title;
     items.price = product_price;
-    items.quantity = product_quantity;
-    items.total_price =Number( product_price.slice(1));
+    items.quantity = product_quantity.innerHTML;
+    items.total_price =total_result;
 
     if(data_from_LS == null){
        data_from_LS= []

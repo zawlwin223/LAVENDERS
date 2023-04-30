@@ -1,22 +1,41 @@
 <style>
-
+    .title{
+        width: 500px;
+    }
+   @media only screen and (max-width: 600px) {
+      .title{
+        width: 300px;
+      }
+      table{
+        width: 100% !important;
+      }
+}
 </style>
 <div class="container-fluid">
     <div class="row vh-100">
-        <div class="col-lg-6 col-sm-12 bg-light d-flex justify-content-center align-items-center each_product py-5"> 
+        <div class="col-lg-6 col-sm-12 bg-light d-flex justify-content-center align-items-center each_product py-5 position-relative"> 
+            <i class="bi bi-arrow-left position-absolute" style="    font-size: 31px;
+            left: 20px;
+            top: 70px;" onclick="back()"></i>
             <img src="/images/<%=product.image%> " product_id="<%= product.id %>" class="product_detail_img mt-5 product-image" alt="" style="height: 250px;">
         </div>
         <div class="col-lg-6 col-sm-12 bg-black text-light d-flex justify-content-center align-items-center pb-5">
             <div class="mt-5">
-                <h1 class="fw-bold display-4 mb-5 product-title text-uppercase"><%= product.title %> </h1>
-                <table style="width:300px;height: 100px;">
+                <h1 class="fw-bold display-4 mb-5 product-title text-uppercase title"><%= product.title %> </h1>
+                <table style="width: 70%; height: 100px;">
                 <tr class="p-5 ms-3">
                     <th class="text-start">Price : </th>
                     <td class="text-center product-price" style="color: violet;"><%=product.price%> </td>
                 </tr>
                 <tr class="p-5 ms-3">
                     <th class="text-start">Quantity :</th>
-                    <td class="text-center product-quantity">1</td>
+                    <td class="text-center product-quantity">
+                        <div class="d-flex justify-content-around " style="border: 1px solid white;height: 30px;text-align: center;">
+                            <i class="bi bi-plus-lg" onclick="plus_item()"></i>
+                            <span class="item_quantity_text">1</span>
+                            <i class="bi bi-dash" onclick="minus_item()"></i>
+                          </div>  
+                    </td>
                 </tr>
             </table>
             <!-- <button class="btn btn-outline-light mt-5 w-100 " onclick="AddToCart()">Add To Cart</button> -->
@@ -28,6 +47,9 @@
                 <h5 class="offcanvas-title fw-bold text-light fs-4" id="offcanvasWithBothOptionsLabel">Cart</h5>
                 <button type="button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
+              <div class="del_box">
+               
+               </div>
               <div class="offcanvas-body d-flex flex-column justify-content-between">
                 
                 <div class="cart_body">
@@ -51,5 +73,18 @@
         </div>
     </div>
 </div>
-
+<script>
+let item_quantity_text = document.querySelector(".item_quantity_text");
+    function plus_item(){
+      item_quantity_text.innerHTML=Number(item_quantity_text.innerHTML)+1;
+        
+    }
+    function minus_item(){
+        if(item_quantity_text.innerHTML == "1"){
+        console.log("equal zero")
+        return;
+    }
+    item_quantity_text.innerHTML=Number(item_quantity_text.innerHTML)-1;
+    }
+</script>
 <script src="/js/product_info.js"></script>
