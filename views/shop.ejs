@@ -146,7 +146,16 @@
     </div>
     
   </div>
-
+  <div class="loading d-flex justify-content-center align-items-center top-0 " style="width: 100%;height: 100%;background-color: black;position: absolute;">
+    <span class="loader"></span>
+  </div>
+  <script>
+      let loading = document.querySelector(".loading")
+ window.addEventListener('load', () => {
+  // loading.classList.remove("d-none")
+    loading.classList.add("d-none")
+});
+  </script>
 <script src="/js/product.js"></script>
 
 <script src="/js/detail_product.js"></script>
