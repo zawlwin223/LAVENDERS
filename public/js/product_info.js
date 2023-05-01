@@ -36,10 +36,13 @@ function add_cart(){
     if(data_from_LS.length==0){
    
         del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
+        let check_out = document.querySelector(".check_out")
+    check_out.setAttribute("disabled","")
        
      }else if(data_from_LS.length!=0){
         del_box.innerHTML=` <p class="text-danger text-end me-3 del" onclick="del_all()">Delete All</p>`
-        
+        let check_out = document.querySelector(".check_out")
+    check_out.removeAttribute("disabled")
      }   
 }
 

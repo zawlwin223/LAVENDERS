@@ -5,15 +5,7 @@ let cart_body = document.querySelector(".cart_body")
 let cart_footer = document.querySelector(".cart_footer");
 let icon = document.querySelector(".icon");
 
-if(data_from_LS.length==0){
-   
-    del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
-   
- }else if(data_from_LS.length!=0){
-    del_box.innerHTML=` <p class="text-danger text-end me-3 del" onclick="del_all()">Delete All</p>`
-   
-    
- }
+
 
  function del_all(){
     
@@ -27,7 +19,8 @@ if(data_from_LS.length==0){
     total.innerHTML=`0K`
     add_to_cart.innerHTML="Add To Cart"
     add_to_cart.removeAttribute('disabled', '');
-  
+    let check_out = document.querySelector(".check_out")
+    check_out.setAttribute("disabled","")
    
    
  }
@@ -95,7 +88,7 @@ function total_price(){
    <span class="fw-bold total_price">${cart_total_price}K</span>
 </div>
 <div>
-   <button class="btn btn-dark w-100 h-25 mb-0">Check Out</button>
+   <button class="btn btn-dark w-100 h-25 mb-0 check_out" onclick="checkout()">Check Out</button>
 </div>
    
    `
@@ -103,7 +96,18 @@ function total_price(){
 }
 
 total_price();
-
+if(data_from_LS.length==0){
+   
+    del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
+    let check_out = document.querySelector(".check_out")
+    check_out.setAttribute("disabled","")
+   
+ }else if(data_from_LS.length!=0){
+    del_box.innerHTML=` <p class="text-danger text-end me-3 del" onclick="del_all()">Delete All</p>`
+    let check_out = document.querySelector(".check_out")
+    check_out.removeAttribute("disabled")
+    
+ }
 function  plus(e,p){
     let cart_item =e.target.closest(".cart_item");
     let quantity_text = e.target.closest(".cart_item").querySelector(".quantity_text");
@@ -190,9 +194,13 @@ function remove_item(e,ind){
    if(data_from_LS.length==0){
    
     del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
+    let check_out = document.querySelector(".check_out")
+    check_out.setAttribute("disabled","")
    
  }else if(data_from_LS.length!=0){
     del_box.innerHTML=` <p class="text-danger text-end me-3 del" onclick="del_all()">Delete All</p>`
+    let check_out = document.querySelector(".check_out")
+    check_out.removeAttribute("disabled")
     
  }
    if(img == product_img.src){
@@ -203,14 +211,10 @@ function remove_item(e,ind){
 
 }
 
-// function cart_icon(){
-//     let data = JSON.parse(localStorage.getItem("Cart_Item")) ;
-//     cart_link.innerHTML += 
-// `<span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger" style="top: 10px !important;z-index: 1;" >
-// ${data.length}
-// </span>`
-// }
-// cart_icon();
 function back(){
   location.href = "/shop"
+}
+
+function checkout(){
+    location.href = "/CheckOut"
 }
