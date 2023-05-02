@@ -9,7 +9,8 @@ let icon = document.querySelector(".icon");
 
  function del_all(){
     
-   
+    let check_out = document.querySelector(".check_out")
+    check_out.setAttribute("disabled","")
     let total = document.querySelector(".total_price")
     del_box.innerHTML=`<p class=" ms-3 del">Your Cart Is Empty</p>`
     data_from_LS=[];
@@ -19,8 +20,7 @@ let icon = document.querySelector(".icon");
     total.innerHTML=`0K`
     add_to_cart.innerHTML="Add To Cart"
     add_to_cart.removeAttribute('disabled', '');
-    let check_out = document.querySelector(".check_out")
-    check_out.setAttribute("disabled","")
+   
    
    
  }
