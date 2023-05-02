@@ -1,1 +1,104 @@
-<h1>Hi This is Order</h1>
+<style>
+    tr{
+        height: 40px;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row " style="height: 140vh;">
+        <div class="container">
+            <div class="row py-5 justify-content-center order-box" >
+                <div class="col-12 mt-5 text-center">
+                    <h2 class="fw-bold text-uppercase mt-5">ORDER CONFIRMED</h2>
+                <P>You'll receive a confirmination email soon</P>
+                <p>Order Id : <%= order[0]._id%></p>
+                </div>
+                <div class="col-lg-8 col-12 border px-3 pb-3 mt-4" >
+
+                       
+        <% order[0].product.forEach((val)=>{%>
+            <div class="d-flex justify-content-between  w-100 align-items-center   border-bottom " style="height: 80px;">
+                <div class="w-25">
+                    <img src="<%= val.img %>" alt="" style="height: 70px;">
+                </div>
+                <div class="w-50">
+                    <h5 ><%= val.title%></h5>
+                    <p>
+                        Qty:<%= val.qty %>
+                    </p>
+                </div>
+               
+                
+                <div>
+                    <span class="order_price">$<%=val.price%></span>
+                  
+                </div>
+            </div>
+       <%   }) %> 
+                    
+                   
+                     <div class="d-flex justify-content-end mt-4">
+                        <table class="table w-50 ">
+                            <tr>
+                              <td class="">Subtotal</td>
+                              <td class="subtotal text-end"></td>
+                            </tr>
+                            <tr>
+                              <td>Shipping</td>
+                              <td class="shipping text-end">$10</td>
+                            </tr>
+                            <tr>
+                              <td>Tax</td>
+                              <td class="text-end">$0</td>
+                            </tr>
+                            <tr >
+                                <td>Total</td>
+                                <td class="text-end total">$0</td>
+                              </tr>
+                          </table>
+                     </div>
+                </div>
+
+                <div class="col-lg-8 col-12 border mt-5 p-3 d-flex justify-content-between">
+                    <div>
+                        <h5 >Shipping Address</h5>
+                        <small class="mb-0"><%= order[0].firstName %> <%= order[0].lastName%></small><br>
+                        <small><%= order[0].city %>,</small><small> <%= order[0].zip %>,</small><small> <%= order[0].country%></small><br>
+                        <small><%= order[0].phone%></small>
+                    </div>
+                    <div>
+                        <h5 >Billing Address</h5>
+                        <small class="mb-0"><%= order[0].firstName %> <%= order[0].lastName%></small><br>
+                        <small><%= order[0].city %>,</small><small> <%= order[0].zip %>,</small><small> <%= order[0].country%></small><br>
+                        <small><%= order[0].phone%></small>
+                    </div>
+                    <div>
+                        <h5>Payment</h5>
+                        <small>Offline</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-12 text-secondary text-center mt-3">
+                    <a href="/Shop" class="text-secondary">Continue Browsing</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let price = document.querySelectorAll(".order_price")
+let subtotal = document.querySelector(".subtotal")
+let total = document.querySelector(".total")
+let p = 0;
+
+price.forEach((val)=>{
+    p+= Number(val.innerHTML.slice(1))
+    console.log()
+})
+total.innerHTML =`$${ p+10}`
+subtotal.innerHTML=`$${p}`
+console.log(p)
+
+</script>

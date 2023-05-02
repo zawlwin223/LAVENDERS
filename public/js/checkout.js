@@ -22,7 +22,9 @@ let product=[];
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
-     console.log("Something")
+    let newtab = window.open('http://localhost:3000/CheckOut/Order');
+ newtab.document.location.reload(true);
+    localStorage.removeItem("Cart_Item")
      user_data.email = email.value
      user_data.firstName = firstName.value
      user_data.lastName = lastName.value
@@ -49,7 +51,7 @@ form.addEventListener("submit",(e)=>{
 })
 
 data.forEach((val)=>{
-    product.push({id:val.id,qty:val.quantity,price:val.total_price})
+    product.push({id:val.id,qty:val.quantity,price:val.total_price,img:val.Img,title:val.title})
     total+=Number(val.total_price)
     console.log(val.total_price)
 tr+=`
