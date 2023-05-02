@@ -34,7 +34,7 @@ form.addEventListener("submit",(e)=>{
      user_data.zip = zip.value
      user_data.country = country.value
      
-     fetch("http://localhost:3000/CheckOut/Order",{
+     fetch("/CheckOut/Order",{
         method:"POST",
         headers:{
             "Content-type":"application/json"
