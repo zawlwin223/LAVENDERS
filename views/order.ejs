@@ -4,9 +4,11 @@
     }
 </style>
 
-
+<div class="loading d-flex justify-content-center align-items-center top-0 " style="width: 100%;height: 100%;background-color: black;position: fixed;">
+    <span class="loader"></span>
+  </div>
 <div class="container">
-    <div class="row " style="height: 140vh;">
+    <div class="row pb-5" >
         <div class="container">
             <div class="row py-5 justify-content-center order-box" >
                 <div class="col-12 mt-5 text-center">
@@ -84,12 +86,19 @@
                 </div>
             </div>
         </div>
+
+
+      
     </div>
 </div>
 
 <script>
 
-// location.reload()
+let loading = document.querySelector(".loading")
+ window.addEventListener('load', () => {
+  // loading.classList.remove("d-none")
+    loading.classList.add("d-none")
+});
 
 let price = document.querySelectorAll(".order_price")
 let subtotal = document.querySelector(".subtotal")
