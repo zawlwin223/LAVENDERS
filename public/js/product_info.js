@@ -51,7 +51,7 @@ function add_cart(){
 function setItem(){
     let total_result = Number( product_price.slice(1))*Number(product_quantity.innerHTML)
     items.id = product_img.getAttribute("product_id")
-    items.Img = product_img.src;
+    items.Img = product_img.getAttribute("src");
     items.title = product_title;
     items.price = product_price;
     items.quantity = product_quantity.innerHTML;

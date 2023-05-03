@@ -22,8 +22,7 @@ let product=[];
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    let newtab = window.open('http://localhost:3000/CheckOut/Order');
- newtab.document.location.reload(true);
+
     localStorage.removeItem("Cart_Item")
      user_data.email = email.value
      user_data.firstName = firstName.value
@@ -43,8 +42,12 @@ form.addEventListener("submit",(e)=>{
      })
      .then((response) => response.json())
      .then((json) => console.log(json));
+     let newtab = "/CheckOut/Order";
+     location.replace(newtab)
+//      location.href = newtab
+//    newtab.location.reload(true);
    
-     location.href = "/CheckOut/Order"
+    //  location.reload(true)
    
     
 
