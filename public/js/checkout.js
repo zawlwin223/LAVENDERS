@@ -41,12 +41,11 @@ form.addEventListener("submit",(e)=>{
         body:JSON.stringify(user_data)
      })
      .then((response) => response.json())
-     .then((json) => console.log(json));
-     let newtab = "/CheckOut/Order";
-      location.href=newtab
-      newtab.location.reload(true)
-   
-    
+     .then(() =>
+     location.href="/CheckOut/Order"
+     );
+
+
 
 })
 

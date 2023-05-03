@@ -5,7 +5,9 @@ let render_check_out_page = async (req,res,next)=>{
 }
 
 let render_order_page_post = async (req,res,next)=>{
-  await new db(req.body).save();
+ let result = await new db(req.body).save();
+ console.log(result)
+ res.send(result)
 
   
 }
