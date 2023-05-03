@@ -23,7 +23,7 @@ let product=[];
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
 
-    localStorage.removeItem("Cart_Item")
+ 
      user_data.email = email.value
      user_data.firstName = firstName.value
      user_data.lastName = lastName.value
@@ -43,7 +43,10 @@ form.addEventListener("submit",(e)=>{
      .then((response) => response.json())
      .then(() =>
      location.href="/CheckOut/Order"
-     );
+    
+     ).then(()=>{
+        localStorage.removeItem("Cart_Item")
+     })
 
 
 
