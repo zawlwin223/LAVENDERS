@@ -18,7 +18,7 @@
 
                        
         <% order[0].product.forEach((val)=>{%>
-            <div class="d-flex justify-content-between  w-100 align-items-center   border-bottom " style="height: 80px;">
+            <div class="d-flex justify-content-between mt-3  w-100 align-items-center py-5  border-bottom " style="height: 80px;">
                 <div class="w-25">
                     <img src="<%= val.img %>" alt="" style="height: 70px;">
                 </div>
@@ -88,7 +88,9 @@
 </div>
 
 <script>
-//   window.onload = function () {window.location.reload()}
+
+// location.reload()
+
 let price = document.querySelectorAll(".order_price")
 let subtotal = document.querySelector(".subtotal")
 let total = document.querySelector(".total")

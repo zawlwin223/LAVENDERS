@@ -43,11 +43,8 @@ form.addEventListener("submit",(e)=>{
      .then((response) => response.json())
      .then((json) => console.log(json));
      let newtab = "/CheckOut/Order";
-     location.replace(newtab)
-//      location.href = newtab
-//    newtab.location.reload(true);
-   
-    //  location.reload(true)
+      location.href=newtab
+      newtab.location.reload(true)
    
     
 
